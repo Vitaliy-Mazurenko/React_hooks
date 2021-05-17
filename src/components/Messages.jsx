@@ -1,10 +1,10 @@
 import React from "react"
 import PrintScrollToBottom from "./PrintScrollToBottom"
-import {data, subscribeToMessages} from "../data"
+import {getInitData, subscribeToMessages} from "../data"
 
 class Messages extends React.Component {
   state = {
-    messages: data,
+    messages: getInitData(),
   }
 
   componentDidMount() {
