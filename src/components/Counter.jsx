@@ -6,7 +6,10 @@ const Counter = () => {
   const increment = () => setCount(x => x + 1)
 
   useEffect(() => {
-    console.log(`You clicked ${count} times`)
+    const handler = setTimeout(increment, 1000)
+    console.log("running effect  - ", count);
+
+    return () => clearTimeout(handler)
   })
 
   return (
