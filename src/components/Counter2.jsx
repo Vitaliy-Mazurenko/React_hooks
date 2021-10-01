@@ -1,14 +1,18 @@
 import {useState} from "react"
 
-// function initializeState(val) {}
-
-const Counter2 = () => {
-  const [count, setCount] = useState(0)
+function useCount(val = 0, step = 1){
+  const [count, setCount] = useState(val)
 
   const reset = () => setCount(0)
-  const increment = () => setCount(prev => prev + 1)
-  const decrement = () => setCount(prev => prev - 1)
+  const increment = () => setCount(prev => prev + step)
+  const decrement = () => setCount(prev => prev - step)
+  return {count, reset, increment, decrement}
 
+}
+
+
+const Counter2 = () => {
+  const {count, reset, increment, decrement} = useCount(10, 5);
   return (
     <>
       <h1>Counter 2</h1>

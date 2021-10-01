@@ -9,13 +9,16 @@ function initializeState() {
 
 const Counter3 = () => {
   /*eslint no-unused-vars: "off"*/
-  const [countOb, setCountOb] = useState(initializeState())
+  const [countOb, setCountOb] = useState(initializeState)
 
-  const reset = () => {}
+  const mergedState = newOb => setCountOb(prev => ({...prev, ...newOb}))
 
-  const increment = () => {}
+  const reset = () => mergedState({count: 0})
 
-  const decrement = () => {}
+  const increment = () => mergedState({count: countOb.count + 1})
+
+  const decrement = () => mergedState({count: countOb.count -1, message: "Decrement"})
+
 
   return (
     <>
